@@ -1,6 +1,7 @@
 package com.crosx.kotlin
 
 import android.os.Bundle
+import com.crosx.common.base.BaseActivity
 
 class MainActivity : BaseActivity() {
 

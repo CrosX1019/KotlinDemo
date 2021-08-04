@@ -2,7 +2,6 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -80,23 +79,5 @@ android {
 }
 
 dependencies {
-
-    implementation SystemLibs.material
-    implementation SystemLibs.hiltAndroid
-    kapt SystemLibs.hiltCompiler
-    SystemLibs.dataBinding
-
-    implementation Kotlin.kotlin_stdlib
-    implementation Kotlin.coroutinesCore
-    implementation Kotlin.coroutinesAndroid
-
-    implementation AndroidX.core_ktx
-    implementation AndroidX.appcompat
-    implementation AndroidX.constraintLayout
-    implementation AndroidX.livedataKtx
-    implementation AndroidX.extensions
-
-    implementation PartyLibs.retrofit
-    implementation PartyLibs.converterGson
-    implementation PartyLibs.coil
+    implementation project(path: ':common')
 }
