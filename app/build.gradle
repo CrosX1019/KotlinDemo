@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -13,33 +14,86 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+        flavorDimensions "kotlinDemo"
+    }
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    applicationVariants.all {
+        variant ->
+            if (variant.buildType.name == 'release') {//防止AS无法安装debug包(apk)
+                variant.outputs.all { output ->
+                    //打包名字
+                    outputFileName = "MyDemo${variant.productFlavors[0].name}_${buildType.name}_v${versionName}.apk"
+                }
+            }
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            // 混淆
+            minifyEnabled true
+            // Zipalign优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            // 混淆
+            minifyEnabled false
+            // Zipalign优化
+            zipAlignEnabled false
+            // 移除无用的resource文件
+            shrinkResources false
+        }
     }
+
+    productFlavors {
+
+        publish {
+            buildConfigField "String", "API_SERVER", '"http://www.zxxzhsj.com/education/"'
+            buildConfigField "String", "API_SERVER_NEW", '"http://www.zxxzhsj.com/veedu-api/"'
+            manifestPlaceholders = [label: "正式版本", icon: "@mipmap/ic_launcher"]
+        }
+
+        develop {
+            buildConfigField "String", "API_SERVER", '"http://192.168.1.58/education/"'
+            buildConfigField "String", "API_SERVER_NEW", '"http://192.168.1.58:8085/"'
+            manifestPlaceholders = [label: "开发版本", icon: "@mipmap/ic_launcher_round"]
+        }
+
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        dataBinding true
     }
 }
 
 dependencies {
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.1'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.2.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation SystemLibs.material
+
+    implementation Kotlin.kotlin_stdlib
+    SystemLibs.dataBinding
+    implementation Kotlin.coroutinesCore
+    implementation Kotlin.coroutinesAndroid
+
+    implementation AndroidX.core_ktx
+    implementation AndroidX.appcompat
+    implementation AndroidX.constraintLayout
+    implementation AndroidX.livedataKtx
+    implementation AndroidX.extensions
+
+    implementation PartyLibs.retrofit
+    implementation PartyLibs.converterGson
+    implementation PartyLibs.coil
 }
