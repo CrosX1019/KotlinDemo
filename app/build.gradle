@@ -76,8 +76,15 @@ android {
     buildFeatures {
         dataBinding true
     }
+
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/kotlin']
+        }
+    }
 }
 
 dependencies {
     implementation project(path: ':common')
+    implementation project(path: ':module_home')
 }
