@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -81,9 +82,11 @@ android {
 dependencies {
 
     implementation SystemLibs.material
+    implementation SystemLibs.hiltAndroid
+    kapt SystemLibs.hiltCompiler
+    SystemLibs.dataBinding
 
     implementation Kotlin.kotlin_stdlib
-    SystemLibs.dataBinding
     implementation Kotlin.coroutinesCore
     implementation Kotlin.coroutinesAndroid
 

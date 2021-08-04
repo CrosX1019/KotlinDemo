@@ -11,11 +11,14 @@ object Version {
     const val v_extensions = "2.2.0"
     const val v_coroutines = "1.5.1"
     const val v_coil = "1.3.1"
+    const val v_hilt = "2.28-alpha"
 }
 
 object SystemLibs {
     const val dataBinding = "com.android.databinding:compiler:${Version.v_gradle}"
     const val material = "com.google.android.material:material:${Version.v_material}"
+    const val hiltAndroid = "com.google.dagger:hilt-android:${Version.v_hilt}"
+    const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Version.v_hilt}"
 }
 
 object Kotlin {
