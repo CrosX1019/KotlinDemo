@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -60,6 +61,8 @@ dependencies {
     api AndroidX.constraintLayout
     api AndroidX.livedataKtx
     api AndroidX.extensions
+    api AndroidX.navigationFragment
+    api AndroidX.navigationUI
 
     api PartyLibs.retrofit
     api PartyLibs.converterGson

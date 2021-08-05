@@ -12,6 +12,7 @@ object Version {
     const val v_coroutines = "1.5.1"
     const val v_coil = "1.3.1"
     const val v_hilt = "2.28-alpha"
+    const val v_navigation = "2.3.5"
 }
 
 object SystemLibs {
@@ -37,6 +38,8 @@ object AndroidX {
         "androidx.constraintlayout:constraintlayout:${Version.v_constraintLayout}"
     const val livedataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:${Version.v_liveData}"
     const val extensions = "androidx.lifecycle:lifecycle-extensions:${Version.v_extensions}"
+    const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Version.v_navigation}"
+    const val navigationUI = "androidx.navigation:navigation-ui-ktx:${Version.v_navigation}"
 
 }
 
