@@ -3,7 +3,7 @@
     package="com.crosx.kotlin">
 
     <application
-        android:name=".KotlinApplication"
+        android:name="com.crosx.common.KotlinApplication"
         android:allowBackup="false"
         android:icon="${icon}"
         android:label="${label}"

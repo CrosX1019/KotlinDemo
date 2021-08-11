@@ -2,3 +2,4 @@ rootProject.name = "KotlinDemo"
 include ':app'
 include ':common'
 include ':module_home'
+include ':module_personal'

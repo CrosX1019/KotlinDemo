@@ -2,8 +2,6 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
-    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -16,7 +14,6 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
 
@@ -30,6 +27,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
@@ -46,26 +44,9 @@ android {
 }
 
 dependencies {
-
-    api SystemLibs.material
-    api SystemLibs.hiltAndroid
-    kapt SystemLibs.hiltCompiler
-    SystemLibs.dataBinding
-
-    api Kotlin.kotlin_stdlib
-    api Kotlin.coroutinesCore
-    api Kotlin.coroutinesAndroid
-
-    api AndroidX.core_ktx
-    api AndroidX.appcompat
-    api AndroidX.constraintLayout
-    api AndroidX.livedataKtx
-    api AndroidX.extensions
-    api AndroidX.navigationFragment
-    api AndroidX.navigationUI
-
-    api PartyLibs.retrofit
-    api PartyLibs.converterGson
-    api PartyLibs.coil
-    api PartyLibs.qiniu
+    implementation project(path: ':common')
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
 }

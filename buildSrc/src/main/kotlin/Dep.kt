@@ -13,6 +13,7 @@ object Version {
     const val v_coil = "1.3.1"
     const val v_hilt = "2.28-alpha"
     const val v_navigation = "2.3.5"
+    const val v_qiniu = "8.3.+"
 }
 
 object SystemLibs {
@@ -47,6 +48,7 @@ object PartyLibs {
     const val retrofit = "com.squareup.retrofit2:retrofit:${Version.v_retrofit}"
     const val converterGson = "com.squareup.retrofit2:converter-gson:${Version.v_retrofit}"
     const val coil = "io.coil-kt:coil:${Version.v_coil}"
+    const val qiniu = "com.qiniu:qiniu-android-sdk:${Version.v_qiniu}"
 }
 
 
