@@ -5,14 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.crosx.common.base.BaseFragment
+import com.crosx.common.base.BaseViewModel
 
-class PersonalFragment : BaseFragment() {
+class PersonalFragment : BaseFragment<BaseViewModel>() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return LayoutInflater.from(context).inflate(R.layout.fragment_personal, container, false)
+    override fun layoutId() = R.layout.fragment_personal
+
+    override fun init() {
+
     }
 }

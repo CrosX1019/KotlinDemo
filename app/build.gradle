@@ -51,14 +51,10 @@ android {
     productFlavors {
 
         publish {
-            buildConfigField "String", "API_SERVER", '"http://www.zxxzhsj.com/education/"'
-            buildConfigField "String", "API_SERVER_NEW", '"http://www.zxxzhsj.com/veedu-api/"'
             manifestPlaceholders = [label: "正式版本", icon: "@mipmap/ic_launcher"]
         }
 
         develop {
-            buildConfigField "String", "API_SERVER", '"http://192.168.1.58/education/"'
-            buildConfigField "String", "API_SERVER_NEW", '"http://192.168.1.58:8085/"'
             manifestPlaceholders = [label: "开发版本", icon: "@mipmap/ic_launcher_round"]
         }
 

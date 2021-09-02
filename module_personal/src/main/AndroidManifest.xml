@@ -3,7 +3,6 @@
     package="com.crosx.module_personal">
 
     <application>
-        <activity android:name=".AbActivity"></activity>
     </application>
 
 </manifest>
