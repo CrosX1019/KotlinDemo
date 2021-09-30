@@ -26,7 +26,6 @@ abstract class BaseFragment<VM: ViewModel> : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        init()
         return inflater.inflate(layoutId(), container, false)
     }
 
@@ -38,7 +37,7 @@ abstract class BaseFragment<VM: ViewModel> : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mViewModel = createViewModel()
-
+        init()
     }
 
     private fun createViewModel(): VM {

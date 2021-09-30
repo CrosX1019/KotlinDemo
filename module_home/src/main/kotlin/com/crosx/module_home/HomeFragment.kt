@@ -1,11 +1,11 @@
 package com.crosx.module_home
 
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.crosx.common.base.BaseDBFragment
+import com.crosx.common.base.BaseVmDbFragment
 import com.crosx.common.base.BaseViewModel
 import com.crosx.module_home.databinding.FragmentHomeBinding
 
-class HomeFragment : BaseDBFragment<BaseViewModel, FragmentHomeBinding>() {
+class HomeFragment : BaseVmDbFragment<BaseViewModel, FragmentHomeBinding>() {
 
     override fun layoutId() = R.layout.fragment_home
 

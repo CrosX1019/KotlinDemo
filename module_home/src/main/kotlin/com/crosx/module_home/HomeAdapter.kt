@@ -19,7 +19,7 @@ class HomeAdapter : BaseLinearAdapter<HomeBean>() {
             Toast.makeText(KotlinApplication.context, homeItem.title, Toast.LENGTH_SHORT).show()
         }
         binding.setVariable(BR.homeBean, itemList[position])
-        notifyDataSetChanged()
+//        notifyDataSetChanged()
     }
 
 

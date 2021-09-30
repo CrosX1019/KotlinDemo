@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 
-abstract class BaseDBFragment<VM : BaseViewModel, DB : ViewDataBinding>() : BaseFragment<VM>() {
+abstract class BaseVmDbFragment<VM : BaseViewModel, DB : ViewDataBinding>() : BaseFragment<VM>() {
 
     lateinit var mDataBinding : DB
 
